@@ -1,12 +1,7 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useEffect, useState } from "react";
+import { DateTime } from "luxon";
 import TimezoneList from "./_components/TimezoneList";
 import { CircleX } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,11 +10,27 @@ import { Badge } from "@/components/ui/badge";
 const page = () => {
   const [mounted, setMounted] = useState(false);
   const [selectedTimezones, setSelectedTimezones] = useState([]);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [selectedCurrentTimes, setSelectedCurrentTimes] = useState([]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+      const updatedTimes = selectedTimezones.map((timezone) => {
+        const currentTime = DateTime.now().setZone(timezone);
+        const time = currentTime.toLocaleString(DateTime.TIME_SIMPLE);
+        const date = currentTime.toLocaleString(DateTime.DATE_FULL);
+        return { timezone, time, date };
+      });
+      setSelectedCurrentTimes(updatedTimes);
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, [selectedTimezones]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Callback to receive selected timezones from the child component
   const handleSelectedTimezonesChange = (newSelectedTimezones) => {
     setSelectedTimezones(newSelectedTimezones);
   };
@@ -29,35 +40,70 @@ const page = () => {
     );
   };
 
+  const time = currentTime.toLocaleTimeString();
+  const date = currentTime.toLocaleDateString();
+
   if (!mounted) {
-    return null; // Or a loading spinner if necessary
+    return null;
   }
 
   return (
     <div className="w-[100%] p-2">
       <Card className="w-[full]">
         <CardHeader>
-          <CardTitle className="px-1">Multiple Time Zone Converter</CardTitle>
-          <CardDescription></CardDescription>
+          <CardTitle className="px-1">
+            <div className="flex justify-between items-center">
+              <div>Multiple Time Zone Converter</div>
+              <div className="flex flex-col items-end">
+                <div className="text-[#333] text-[18px]">{date}</div>
+                <div className="text-[#000099] text-[36px] font-bold mt-[10px]">
+                  {time}
+                </div>
+              </div>
+            </div>
+          </CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col-reverse md:flex md:flex-row">
-          <div className="mb-4 md:w-[70%] border-2">
-            {/* Display the selected timezones */}
-            <div style={{ marginTop: "20px" }}>
-              <h3>Selected Timezones:</h3>
-              <div className="pt-2 px-1">
+        <CardContent className="flex flex-col-reverse md:flex md:flex-row h-[500px]">
+          <div className="md:w-[70%]">
+            <div>
+              {/* <h3>Selected Timezones:</h3> */}
+              <div className=" flex flex-wrap">
                 {selectedTimezones.length > 0 ? (
                   selectedTimezones.map((timezone) => (
-                    <Badge key={timezone} className="font-light">
-                      {timezone}
-                      <Button className="p-0 h-[20px] ml-2 cursor-pointer" onClick={() => removeTimezone(timezone)}>
-                        <CircleX />
-                      </Button>
-                    </Badge>
+                    <div key={timezone} className="pt-2 px-1 ">
+                      <Badge className="cursor-default font-light">
+                        {timezone}
+                        <Button
+                          className="p-0 h-[20px] ml-2 cursor-pointer"
+                          onClick={() => removeTimezone(timezone)}
+                        >
+                          <CircleX />
+                        </Button>
+                      </Badge>
+                    </div>
                   ))
                 ) : (
-                  <p>No timezones selected.</p>
+                  <p className="px-1">No timezones selected.</p>
                 )}
+              </div>
+            </div>
+            <div className="mt-4">
+              {/* Display the converted times for each selected timezone */}
+              <div style={{ marginTop: "20px" }} className="flex flex-wrap">
+                {selectedCurrentTimes.length > 0 &&
+                  selectedCurrentTimes.map(({ timezone, time }) => (
+                    <div key={timezone} className="px-1 pt-2">
+                      <div className="shadow-md rounded-md p-2 flex flex-col justify-center items-center">
+                        <strong>{timezone}</strong>
+                        <br />
+
+                        <div className="text-[#333] text-[18px]">{date}</div>
+                        <div className="text-[#000099] text-[36px] font-bold mt-[10px]">
+                          {time}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -70,71 +116,6 @@ const page = () => {
         </CardContent>
       </Card>
     </div>
-    // <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6">
-    //   <h1 className="text-3xl font-semibold mb-6 text-center text-gray-800">
-    //     Multiple Time Zone Converter
-    //   </h1>
-
-    //   {/* Input Section */}
-    //   <div className="mb-4">
-    //     <label className="block text-lg font-medium text-gray-700">
-    //       Enter Date/Time (ISO format):
-    //     </label>
-    //     <input
-    //       type="text"
-    //       value={date}
-    //       onChange={(e) => setDate(e.target.value)}
-    //       className="mt-2 p-2 w-full max-w-sm border border-gray-300 rounded-lg"
-    //       placeholder="e.g., 2024-12-25T12:00:00"
-    //     />
-    //   </div>
-
-    //   {/* Time Zone Selection */}
-    //   <div className="mb-4">
-    //     <label className="block text-lg font-medium text-gray-700">
-    //       Select Time Zones:
-    //     </label>
-    //     <select
-    //       multiple
-    //       value={timeZones}
-    //       onChange={(e) =>
-    //         setTimeZones(
-    //           [...e.target.selectedOptions].map((option) => option.value)
-    //         )
-    //       }
-    //       className="mt-2 p-2 w-full max-w-sm border border-gray-300 rounded-lg"
-    //     >
-    //       <option value="America/New_York">America/New_York</option>
-    //       <option value="Europe/London">Europe/London</option>
-    //       <option value="Asia/Tokyo">Asia/Tokyo</option>
-    //       <option value="Australia/Sydney">Australia/Sydney</option>
-    //       <option value="Asia/Kolkata">Asia/Kolkata</option>
-    //       <option value="America/Los_Angeles">America/Los_Angeles</option>
-    //     </select>
-    //   </div>
-
-    //   {/* Convert Button */}
-    //   <button
-    //     onClick={handleConvertTimeZones}
-    //     className="px-6 py-2 bg-blue-600 text-white font-medium text-lg rounded-lg hover:bg-blue-700 transition"
-    //   >
-    //     Convert Time Zones
-    //   </button>
-
-    //   {/* Converted Times Display */}
-    //   <div className="mt-6 space-y-4">
-    //     {convertedTimes.length > 0 &&
-    //       convertedTimes.map(({ zone, time }) => (
-    //         <div
-    //           key={zone}
-    //           className="p-4 bg-white shadow-lg rounded-lg w-full max-w-md text-gray-700"
-    //         >
-    //           <p className="text-xl font-medium">{zone}</p>
-    //           <p className="text-lg">{time}</p>
-    //         </div>
-    //       ))}
-    //   </div>
-    // </div>
   );
 };
 
