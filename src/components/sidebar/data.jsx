@@ -42,8 +42,40 @@ export const sidebarData = [
           { title: "Volume ", link: "/converter/unit-converter/volume" },
         ],
       },
-      { title: "Currency Converter", link: "/converter/currency-converter" },
-      { title: "Date/Time Converter", link: "/Converter/date-time-converter" },
+      // { title: "Currency Converter", link: "/converter/currency-converter" },
+      {
+        title: "Date/Time Converter",
+        subItems: [
+          {
+            title: "Time Zone Converter",
+            link: "/converter/date-time-converter/time-zone-converter",
+          },
+          {
+            title: "Day of the week Finder",
+            link: "/converter/date-time-converter/day-of-the-week-finder",
+          },
+          {
+            title: "Date Range Picker",
+            link: "/converter/date-time-converter/date-range-picker",
+          },
+          {
+            title: "Days Calculator ",
+            link: "/converter/date-time-converter/business-days-calculator",
+          },
+          {
+            title: "Custom Event Scheduler ",
+            link: "/converter/date-time-converter/custom-event-scheduler",
+          },
+          {
+            title: "Birthday Timer",
+            link: "/converter/date-time-converter/birthday-timer",
+          },
+          {
+            title: "Event Planner",
+            link: "/converter/date-time-converter/event-planner",
+          },
+        ],
+      },
       { title: "Base Converters", link: "/Converter/base-converter" },
       // { title: "Area ", link: "/Converter/area" },
       // { title: "Volume ", link: "/Converter/volume" },

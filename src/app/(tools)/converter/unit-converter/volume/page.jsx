@@ -68,7 +68,7 @@ export default function VolumeConverter() {
               {availableUnits.map((unit) => (
                 <div key={unit.key} className="pt-2 px-1">
                   <Badge
-                    className={`font-light ${
+                    className={`font-light cursor-default hover:text-white ${
                       unit.key === fromUnit || unit.key === toUnit
                         ? "bg-[#000099] text-white"
                         : "bg-gray-200 text-black"

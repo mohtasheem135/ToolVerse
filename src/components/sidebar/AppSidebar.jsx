@@ -108,7 +108,7 @@ export function AppSidebar() {
           <Collapsible defaultOpen={isOpen} className="group/collapsible">
             <CollapsibleTrigger asChild>
               <SidebarMenuButton
-                className="text-[16px]"
+                className="text-[14px]"
                 onClick={() => handleToggle(subItem.title)}
               >
                 {isOpen ? <ChevronDown /> : <ChevronRight />}
@@ -125,7 +125,7 @@ export function AppSidebar() {
           </Collapsible>
         ) : (
           <div className="flex justify-between items-center w-[100%] cursor-pointer">
-            <span onClick={() => router.push(subItem.link)} className="w-[80%]">
+            <span onClick={() => router.push(subItem.link)} className="w-[80%] text-[12px]">
               {subItem.title}
             </span>
             {!isPinned && (

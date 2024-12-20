@@ -61,11 +61,10 @@ export default function AreaConverter() {
           <CardTitle className="px-1">Volume Converter</CardTitle>
           <CardDescription>
             <p className="px-1">Units between which you can convert.</p>
-            <div className="flex flex-wrap">
-              {areaUnits.map((unit) => (
+            <div className="flex flex-wrap">              {areaUnits.map((unit) => (
                 <div key={unit.key} className="pt-2 px-1">
                   <Badge
-                    className={`font-light ${
+                    className={`font-light cursor-default hover:text-white ${
                       unit.key === fromUnit || unit.key === toUnit
                         ? "bg-[#000099] text-white"
                         : "bg-gray-200 text-black"
