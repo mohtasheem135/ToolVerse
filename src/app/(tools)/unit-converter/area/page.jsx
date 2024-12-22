@@ -58,7 +58,7 @@ export default function AreaConverter() {
     <div className="w-[100%] p-2">
       <Card className="w-[full]">
         <CardHeader>
-          <CardTitle className="px-1">Volume Converter</CardTitle>
+          <CardTitle className="px-1">Area Converter</CardTitle>
           <CardDescription>
             <p className="px-1">Units between which you can convert.</p>
             <div className="flex flex-wrap">
