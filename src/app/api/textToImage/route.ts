@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import sharp from "sharp";
+import fs from "fs";
+import path from "path";
 
 export async function POST(request: Request) {
   try {
@@ -10,14 +12,21 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No text provided" }, { status: 400 });
     }
 
+    const fontPath = path.join(
+      process.cwd(),
+      "public",
+      "fonts",
+      "Roboto-Medium.ttf"
+    );
 
+    // const fontData = fs.readFileSync(fontPath, "base64");
+    // console.log(fontData);
     const imageBuffer = await sharp({
       text: {
         text: text,
         width: 800, // Adjust as needed
         height: 600,
         align: "center",
-        font: "geist",
         rgba: true,
       },
     })
