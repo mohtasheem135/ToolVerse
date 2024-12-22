@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full m-0`}
+        className={`w-full m-0`}
       >
         <SidebarProvider>
           <div className="flex w-full">
