@@ -17,7 +17,7 @@ export async function POST(request: Request) {
         width: 800, // Adjust as needed
         height: 600,
         align: "center",
-        font: "serif",
+        font: "geist",
         rgba: true,
       },
     })
