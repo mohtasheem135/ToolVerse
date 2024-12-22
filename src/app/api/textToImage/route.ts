@@ -1,6 +1,5 @@
-// app/api/textToImage/route.ts
-import { NextResponse } from 'next/server';
-import sharp from 'sharp';
+import { NextResponse } from "next/server";
+import sharp from "sharp";
 
 export async function POST(request: Request) {
   try {
@@ -8,29 +7,35 @@ export async function POST(request: Request) {
     const text = data.text;
 
     if (!text) {
-      return NextResponse.json({ error: 'No text provided' }, { status: 400 });
+      return NextResponse.json({ error: "No text provided" }, { status: 400 });
     }
+
 
     const imageBuffer = await sharp({
       text: {
         text: text,
         width: 800, // Adjust as needed
-        height: 600, // Adjust as needed
-        align: 'center', // Align text to the center
-        font: 'sans',
-        rgba: true
+        height: 600,
+        align: "center",
+        font: "serif",
+        rgba: true,
       },
-    }).png().toBuffer();
+    })
+      .png()
+      .toBuffer();
 
     return new NextResponse(imageBuffer, {
       status: 200,
       headers: {
-        'Content-Type': 'image/png',
-        'Content-Disposition': `attachment; filename="text_image.png"`,
+        "Content-Type": "image/png",
+        "Content-Disposition": `attachment; filename="text_image.png"`,
       },
     });
   } catch (error) {
-    console.error('Error generating image:', error);
-    return NextResponse.json({ error: 'Failed to generate image' }, { status: 500 });
+    console.error("Error generating image:", error);
+    return NextResponse.json(
+      { error: "Failed to generate image" },
+      { status: 500 }
+    );
   }
 }
