@@ -13,12 +13,11 @@ export async function POST(request: Request) {
   
     const imageBuffer = await sharp({
       text: {
-        text: 'Hello, world!',
-        // text: text,
+        text: text,
         width: 800, // Adjust as needed
         height: 600,
-        // align: "center",
-        // rgba: true,
+        align: "center",
+        rgba: true,
       },
     })
       .png()

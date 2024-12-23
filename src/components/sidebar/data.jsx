@@ -75,9 +75,26 @@ export const sidebarData = [
         title: "Gaussian Noise Generator",
         link: "/image-tools/gaussian-noise-generator",
       },
+      // work in progress
+      // {
+      //   title: "Text to Image Generator",
+      //   link: "/image-tools/text-to-image-generator",
+      // },
       {
-        title: "Text to Image Generator",
-        link: "/image-tools/text-to-image-generator",
+        title: "Image Stat Extractor",
+        link: "/image-tools/image-stat-extractor",
+      },
+      {
+        title: "Image Composite",
+        link: "/image-tools/image-composite",
+      },
+      {
+        title: "Image Operations",
+        link: "/image-tools/image-operations",
+      },
+      {
+        title: "Image Color Manipulation",
+        link: "/image-tools/color-manipulation",
       },
     ],
   },

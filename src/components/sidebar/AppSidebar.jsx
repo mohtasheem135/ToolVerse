@@ -103,7 +103,7 @@ export function AppSidebar() {
     );
 
     return (
-      <SidebarMenuSubItem key={subItem.title} className="py-1">
+      <SidebarMenuSubItem key={subItem.title} className="">
         {subItem.subItems ? (
           <Collapsible defaultOpen={isOpen} className="group/collapsible">
             <CollapsibleTrigger asChild>
@@ -125,14 +125,17 @@ export function AppSidebar() {
           </Collapsible>
         ) : (
           <div className="flex justify-between items-center w-[100%] cursor-pointer">
-            <span onClick={() => router.push(subItem.link)} className="w-[80%] text-[12px]">
+            <span
+              onClick={() => router.push(subItem.link)}
+              className="w-[90%] text-[14px] hover:bg-[#000099] hover:text-white py-1 px-1 rounded-md hover:cursor-pointer"
+            >
               {subItem.title}
             </span>
             {!isPinned && (
               <Pin
                 onClick={() => handlePinClick(subItem)}
-                className="w-[20%]"
-                size={16}
+                className="w-[10%] bg-gray-200 hover:bg-[#000099] hover:text-white shadow rounded-md py-1"
+                size={26}
               />
             )}
           </div>
@@ -157,14 +160,17 @@ export function AppSidebar() {
                         <div className="flex justify-between items-center w-[100%] cursor-pointer">
                           <span
                             onClick={() => router.push(item.link)}
-                            className="w-[80%]"
+                            // className="w-[90%]"
+                            className="w-[90%] text-[14px] hover:bg-[#000099] hover:text-white py-1 px-1 rounded-md hover:cursor-pointer"
                           >
                             {item.title}
                           </span>
                           <PinOff
                             onClick={() => handleRemovePinnedItem(item)}
-                            className="w-[20%]"
-                            size={16}
+                            // className="w-[20%]"
+                            // size={16}
+                            className="w-[10%] bg-gray-200 hover:bg-[#000099] hover:text-white shadow rounded-md py-1"
+                            size={26}
                           />
                         </div>
                       </SidebarMenuButton>
