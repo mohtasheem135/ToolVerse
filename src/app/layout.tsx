@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppSidebar } from "@/components/sidebar/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,11 @@ export default function RootLayout({
             <main className="flex-1 w-full">
               <div className="w-full flex items-center h-[70px] bg-[#000099]">
                 <SidebarTrigger className="w-[40px] h-[40px] ml-3" />
-                <p className="text-[25px] text-white ml-5">ToolVerse</p>
+                <Link href="/">
+                  <p className="text-[25px] text-white ml-5 cursor-pointer">
+                    ToolVerse
+                  </p>
+                </Link>
               </div>
               {children}
             </main>

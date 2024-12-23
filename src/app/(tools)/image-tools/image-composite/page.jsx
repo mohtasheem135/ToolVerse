@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { PlusIcon, Trash2 } from "lucide-react";
 const compositeOperations = [
   "clear",
   "source",
@@ -102,74 +103,95 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-4 text-center">
-          Image Compositing
-        </h1>
-
-        <div className="mb-4">
-          <label htmlFor="operation" className="block mb-2 font-medium">
-            Composite Operation:
-          </label>
-          <select
-            id="operation"
-            value={operation}
-            onChange={(e) => setOperation(e.target.value)}
-            className="w-full border rounded p-2"
-          >
-            {compositeOperations.map((op) => (
-              <option key={op} value={op}>
-                {op}
-              </option>
-            ))}
-          </select>
+    <div className="w-[100%] p-2">
+      <Card className="flex flex-col items-center bg-white shadow-lg rounded-lg">
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-gray-800">
+            Image Composite
+          </CardTitle>
+        </CardHeader>
+        <div className=" md:flex justify-between w-full h-full">
+          <div className="md:w-[70%] p-2 h-[300px] md:h-[480px]">
+            <Card className="p-2 h-full">
+              <div className="flex space-x-2">
+                {[1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="md:w-1/2 shadow-md px-1 rounded-md md:h-[450px]"
+                  >
+                    <label
+                      htmlFor={`image${i}`}
+                      className="block mb-2 font-medium"
+                    >
+                      Image {i}:
+                    </label>
+                    <input
+                      type="file"
+                      id={`image${i}`}
+                      accept="image/*"
+                      onChange={(e) => handleImageChange(e, i - 1)}
+                      className="w-full border rounded p-2"
+                    />
+                    {images[i - 1] && (
+                      <img
+                        src={images[i - 1]}
+                        alt={`Image ${i} Preview`}
+                        className="w-full mt-2 rounded-md h-[180px] md:h-[350px]"
+                        style={{ objectFit: "contain" }}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+          <div className="md:w-[30%] p-2">
+            <Card className="w-full p-2">
+              {error && <p className="text-red-500 mb-4">{error}</p>}
+              <div className="mb-4">
+                <label htmlFor="operation" className="block mb-2 font-medium">
+                  Composite Operation:
+                </label>
+                <select
+                  id="operation"
+                  value={operation}
+                  onChange={(e) => setOperation(e.target.value)}
+                  className="w-full border rounded p-2"
+                >
+                  {compositeOperations.map((op) => (
+                    <option key={op} value={op}>
+                      {op}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <button
+                onClick={handleComposite}
+                disabled={loading || images.filter((image) => image).length < 1}
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {loading ? "Compositing..." : "Composite"}
+              </button>
+            </Card>
+          </div>
         </div>
-
-        {[1, 2].map((i) => (
-          <div key={i} className="mb-4">
-            <label htmlFor={`image${i}`} className="block mb-2 font-medium">
-              Image {i}:
-            </label>
-            <input
-              type="file"
-              id={`image${i}`}
-              accept="image/*"
-              onChange={(e) => handleImageChange(e, i - 1)}
-              className="w-full border rounded p-2"
-            />
-            {images[i - 1] && (
+      </Card>
+      <div className="py-2">
+        <Card className="w-full">
+          {compositeImage && (
+            <div className="mt-6 px-4 text-center">
+              <h2 className="text-lg font-semibold mb-2">Composite Image:</h2>
               <img
-                src={images[i - 1]}
-                alt={`Image ${i} Preview`}
-                className="mt-2 max-w-full"
+                src={compositeImage}
+                alt="Composite"
+                className="max-w-full rounded-md"
               />
-            )}
-          </div>
-        ))}
-
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <button
-          onClick={handleComposite}
-          disabled={loading || images.filter((image) => image).length < 1}
-          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full ${
-            loading ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-        >
-          {loading ? "Compositing..." : "Composite"}
-        </button>
-
-        {compositeImage && (
-          <div className="mt-6 text-center">
-            <h2 className="text-lg font-semibold mb-2">Composite Image:</h2>
-            <img
-              src={compositeImage}
-              alt="Composite"
-              className="max-w-full rounded-md"
-            />
-          </div>
-        )}
+            </div>
+          )}
+        </Card>
       </div>
-    </main>
+    </div>
   );
 }

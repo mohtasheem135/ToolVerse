@@ -152,7 +152,7 @@ export default function Home() {
       const reader = new FileReader();
       reader.onloadend = () => {
         const newBase64 = reader.result;
-        setCurrentImage(newBase64);
+        // setCurrentImage(newBase64);
         setProcessedImageURL(url);
       };
       reader.readAsDataURL(blob);

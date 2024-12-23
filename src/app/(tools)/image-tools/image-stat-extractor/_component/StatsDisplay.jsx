@@ -1,54 +1,10 @@
-// import React from 'react';
-// import { FaChartLine, FaPalette, FaArrowsAltH, FaRulerHorizontal } from 'react-icons/fa'; // Install react-icons
-
-// const StatsDisplay = ({ stats }) => {
-//   if (!stats) return null;
-
-//   return (
-// <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-//   <h2 className="text-lg font-semibold mb-4">Image Analysis</h2>
-//   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-//     {stats.channels.map((channel, index) => (
-//       <div key={index} className="border rounded-md p-4">
-//         <h3 className="font-semibold text-md mb-2">{['Red', 'Green', 'Blue'][index]} Channel</h3>
-//         <div className="flex items-center mb-1"><FaArrowsAltH className="mr-2"/> Min: {channel.min}</div>
-//         <div className="flex items-center mb-1"><FaArrowsAltH className="mr-2 rotate-180"/> Max: {channel.max}</div>
-//         <div className="flex items-center mb-1"><FaChartLine className="mr-2"/> Mean: {channel.mean.toFixed(2)}</div>
-//         <div className="flex items-center"><FaRulerHorizontal className="mr-2"/> Std Dev: {channel.stdev.toFixed(2)}</div>
-//       </div>
-//     ))}
-//     <div className="border rounded-md p-4">
-//       <h3 className="font-semibold text-md mb-2">Overall</h3>
-//       <div className="flex items-center mb-1"><FaChartLine className="mr-2"/> Entropy: {stats.entropy.toFixed(2)}</div>
-//       <div className="flex items-center"><FaRulerHorizontal className="mr-2"/> Sharpness: {stats.sharpness.toFixed(2)}</div>
-//     </div>
-//     <div className="border rounded-md p-4">
-//       <h3 className="font-semibold text-md mb-2 flex items-center"><FaPalette className="mr-2"/> Dominant Color</h3>
-//       <div className="flex items-center">
-//         <div
-//           className="w-8 h-8 rounded-full mr-2"
-//           style={{ backgroundColor: `rgb(${stats.dominant.r}, ${stats.dominant.g}, ${stats.dominant.b})` }}
-//         ></div>
-//         {`rgb(${stats.dominant.r}, ${stats.dominant.g}, ${stats.dominant.b})`}
-//       </div>
-//     </div>
-//   </div>
-//       <p className="mt-2 text-sm text-gray-500">
-//     Live Image Insights.
-//   </p>
-// </div>
-//   );
-// };
-
-// export default StatsDisplay;
-
 import React from "react";
 import {
   FaChartLine,
   FaPalette,
   FaArrowsAltH,
   FaRulerHorizontal,
-} from "react-icons/fa"; // Install react-icons
+} from "react-icons/fa";
 
 import {
   Chart as ChartJS,
