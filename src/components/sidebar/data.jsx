@@ -1,4 +1,4 @@
-import { CalendarClock, Image, NotebookPen, PencilRuler } from "lucide-react";
+import { CalendarClock, Image, Landmark, NotebookPen, PencilRuler } from "lucide-react";
 
 export const sidebarData = [
   // This is the sample way of Adding Data You can add Items, SubItems and Nested SubItems
@@ -41,28 +41,32 @@ export const sidebarData = [
     ],
   },
   {
-    title: "Date/Time Converter",
+    title: "Date/Time",
     icon: CalendarClock,
     subItems: [
       {
         title: "Time Zone Converter",
-        link: "/date-time-converter/time-zone-converter",
+        link: "/date-time/time-zone-converter",
       },
       {
         title: "Day of the week Finder",
-        link: "/date-time-converter/day-of-the-week-finder",
+        link: "/date-time/day-of-the-week-finder",
       },
       {
         title: "Work Days Calculator ",
-        link: "/date-time-converter/work-days-calculator",
+        link: "/date-time/work-days-calculator",
       },
       {
         title: "Birthday/Age Calculator ",
-        link: "/date-time-converter/birthday-calculator",
+        link: "/date-time/birthday-calculator",
       },
       {
         title: "Universal Calendar Viewer ",
-        link: "/date-time-converter/universal-calendar-viewer",
+        link: "/date-time/universal-calendar-viewer",
+      },
+      {
+        title: "Multi Stopwatch ",
+        link: "/date-time/multi-stopwatch",
       },
     ],
   },
@@ -95,6 +99,32 @@ export const sidebarData = [
       {
         title: "Image Color Manipulation",
         link: "/image-tools/color-manipulation",
+      },
+    ],
+  },
+  {
+    title: "Finace Tools",
+    icon: Landmark,
+    subItems: [
+      {
+        title: "Inflation Calculator",
+        link: "/finance-tools/inflation-calculator",
+      },
+      {
+        title: "Compound Interest Calculator",
+        link: "/finance-tools/compound-interest-calculator",
+      },
+      {
+        title: "Amortization Calculator",
+        link: "/finance-tools/amortization-calculator",
+      },
+      {
+        title: "Tax Calculator",
+        link: "/finance-tools/tax-calculator",
+      },
+      {
+        title: "Retirement Savings Calculator",
+        link: "/finance-tools/retirement-savings-calculator",
       },
     ],
   },

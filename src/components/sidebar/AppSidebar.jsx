@@ -73,8 +73,8 @@ export function AppSidebar() {
                 onClick={() => handleToggle(item.title)}
               >
                 <item.icon />
-                <span className="flex justify-between w-full">
-                  {item.title}
+                <span className="flex items-center justify-between w-full">
+                  <p>{item.title}</p>
                   {isOpen ? <ChevronDown /> : <ChevronRight />}
                 </span>
               </SidebarMenuButton>

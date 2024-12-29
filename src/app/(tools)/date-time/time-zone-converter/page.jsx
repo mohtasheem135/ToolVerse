@@ -40,7 +40,7 @@ const page = () => {
   const time = currentTime.toLocaleTimeString();
   const date = currentTime.toLocaleDateString();
 
-  if (!mounted) return null;
+  if (!mounted) return <p>Loading...</p>;
 
   return (
     <div className="w-[100%] p-2">
