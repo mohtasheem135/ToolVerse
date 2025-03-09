@@ -26,7 +26,7 @@ const seriesId = countrySeries[country.toLowerCase()] || countrySeries["india"];
 
   try {
     const res = await fetch(
-      `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=8fa61f4e3d0557e625aed31bbe04c096&file_type=json`,
+      `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${process.env.FRED_API_KEY}&file_type=json`,
       { next: { revalidate: 86400 } }
     );
     if (!res.ok) throw new Error("Failed to fetch data");
