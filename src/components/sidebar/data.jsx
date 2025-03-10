@@ -128,6 +128,21 @@ export const sidebarData = [
       },
     ],
   },
+  {
+    title: "Content Writing Tools",
+    icon: NotebookPen,
+    subItems: [
+      {
+        title: "Keyword Density Checker",
+        link: "/content-writing-tools/keyword-density-checker",
+      },
+      {
+        title: "Citation Generator",
+        link: "/content-writing-tools/citation-generator",
+      },
+      
+    ],
+  },
 
   // {
   //   title: "Converter",
