@@ -153,7 +153,7 @@ const [copyStatus, setCopyStatus] = useState(false)
         Citation Generator
       </h1>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         {/* Left Side: Input Form */}
         <div className="bg-white p-5 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Add Citation Details</h2>
