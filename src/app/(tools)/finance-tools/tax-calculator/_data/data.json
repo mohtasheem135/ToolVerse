@@ -1,0 +1,76 @@
+{
+    "financialYear": "2025-26",
+    "assessmentYear": "2026-27",
+    "regimes": {
+      "new": {
+        "slabs": [
+          {"range": [0, 400000], "rate": 0},
+          {"range": [400001, 800000], "rate": 5},
+          {"range": [800001, 1200000], "rate": 10},
+          {"range": [1200001, 1600000], "rate": 15},
+          {"range": [1600001, 2000000], "rate": 20},
+          {"range": [2000001, 2400000], "rate": 25},
+          {"range": [2400001, "Infinity"], "rate": 30}
+        ],
+        "rebate": {
+          "section": "87A",
+          "maxAmount": 60000,
+          "incomeThreshold": 1200000
+        },
+        "standardDeduction": {
+          "salaried": 75000,
+          "familyPension": 25000
+        },
+        "deductions": {
+          "80C": 0,
+          "80D": 0,
+          "homeLoanInterest": true
+        }
+      },
+      "old": {
+        "slabs": {
+          "below60": [
+            {"range": [0, 250000], "rate": 0},
+            {"range": [250001, 500000], "rate": 5},
+            {"range": [500001, 1000000], "rate": 20},
+            {"range": [1000001, "Infinity"], "rate": 30}
+          ],
+          "60to80": [
+            {"range": [0, 300000], "rate": 0},
+            {"range": [300001, 500000], "rate": 5},
+            {"range": [500001, 1000000], "rate": 20},
+            {"range": [1000001, "Infinity"], "rate": 30}
+          ],
+          "above80": [
+            {"range": [0, 500000], "rate": 0},
+            {"range": [500001, 1000000], "rate": 20},
+            {"range": [1000001, "Infinity"], "rate": 30}
+          ]
+        },
+        "rebate": {
+          "section": "87A",
+          "maxAmount": 25000,
+          "incomeThreshold": 500000
+        },
+        "standardDeduction": {
+          "salaried": 50000,
+          "familyPension": 15000
+        },
+        "deductions": {
+          "80C": 150000,
+          "80D": 25000,
+          "homeLoanInterest": true
+        }
+      }
+    },
+    "cess": {
+      "rate": 4,
+      "description": "Health & Education Cess"
+    },
+    "surcharge": [
+      {"range": [0, 5000000], "rate": 0},
+      {"range": [5000001, 10000000], "rate": 10},
+      {"range": [10000001, 20000000], "rate": 15},
+      {"range": [20000001, 50000000], "rate": 25}
+    ]
+  }
