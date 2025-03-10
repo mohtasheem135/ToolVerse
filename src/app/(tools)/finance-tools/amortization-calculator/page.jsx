@@ -297,6 +297,7 @@ import { useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import useMounted from "@/hooks/useMounted";
+import { Printer } from "lucide-react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -503,13 +504,24 @@ export default function page() {
     }
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   if (!mounted) return null;
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold text-center mb-8">
-        Amortization Calculator (₹)
+      <h1 className="text-3xl font-bold text-center ">
+        Amortization Calculator
       </h1>
-
+      <div className="flex justify-end mb-8">
+        <button
+          onClick={handlePrint}
+          className="px-2 bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition-colors print:hidden"
+        >
+          <Printer />
+        </button>
+      </div>
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left Side - Form */}
         <div className="md:w-1/2 bg-white p-6 rounded-lg shadow-md">
@@ -585,19 +597,19 @@ export default function page() {
           </div>
           {showData && (
             <div className="mt-6 space-y-2">
-              <p className="text-lg">
+              <p className="text-lg pl-2">
                 Total Amount Paid: ₹
                 {totalAmountPaid.toLocaleString("en-IN", {
                   maximumFractionDigits: 2,
                 })}
               </p>
-              <p className="text-lg">
+              <p className="text-lg pl-2">
                 Total Interest Paid: ₹
                 {totalInterestPaid.toLocaleString("en-IN", {
                   maximumFractionDigits: 2,
                 })}
               </p>
-              <p className="text-lg bg-green-400 p-2 rounded-lg">
+              <p className="text-lg bg-green-400 rounded-lg px-2 py-1">
                 Monthly Payment: ₹
                 {monthlyPayment.toLocaleString("en-IN", {
                   maximumFractionDigits: 2,
