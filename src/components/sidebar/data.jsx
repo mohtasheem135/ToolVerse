@@ -140,6 +140,10 @@ export const sidebarData = [
         title: "Citation Generator",
         link: "/content-writing-tools/citation-generator",
       },
+      {
+        title: "Content Summarizer",
+        link: "/content-writing-tools/content-summarizer",
+      },
       
     ],
   },

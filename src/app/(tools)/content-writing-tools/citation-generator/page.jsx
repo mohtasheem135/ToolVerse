@@ -1,112 +1,24 @@
 "use client";
+import useMounted from "@/hooks/useMounted";
 import { Copy } from "lucide-react";
-// import React, { useState } from 'react'
-
-// const page = () => {
-//   const [author, setAuthor] = useState('')
-//   const [title, setTitle] = useState('')
-//   const [year, setYear] = useState('')
-//   const [format, setFormat] = useState('APA')
-//   const [citation, setCitation] = useState('')
-
-//   const generateCitation = () => {
-//     let generatedCitation = ''
-//     switch (format) {
-//       case 'APA':
-//         generatedCitation = `${author}. (${year}). ${title}.`
-//         break
-//       case 'MLA':
-//         generatedCitation = `${author}. "${title}". ${year}.`
-//         break
-//       case 'Chicago':
-//         generatedCitation = `${author}. ${title}. ${year}.`
-//         break
-//       default:
-//         generatedCitation = ''
-//     }
-//     setCitation(generatedCitation)
-//   }
-
-//   return (
-//     <div className="max-w-lg mx-auto p-5 border rounded-lg shadow-lg bg-white">
-//       <h2 className="text-xl font-semibold mb-4">Citation Generator</h2>
-//       <div className="mb-4">
-//         <label className="block text-sm font-medium text-gray-700">Author</label>
-//         <input
-//           type="text"
-//           value={author}
-//           onChange={(e) => setAuthor(e.target.value)}
-//           className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-//         />
-//       </div>
-//       <div className="mb-4">
-//         <label className="block text-sm font-medium text-gray-700">Title</label>
-//         <input
-//           type="text"
-//           value={title}
-//           onChange={(e) => setTitle(e.target.value)}
-//           className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-//         />
-//       </div>
-//       <div className="mb-4">
-//         <label className="block text-sm font-medium text-gray-700">Year</label>
-//         <input
-//           type="text"
-//           value={year}
-//           onChange={(e) => setYear(e.target.value)}
-//           className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-//         />
-//       </div>
-//       <div className="mb-4">
-//         <label className="block text-sm font-medium text-gray-700">Format</label>
-//         <select
-//           value={format}
-//           onChange={(e) => setFormat(e.target.value)}
-//           className="mt-1 block w-full border border-gray-300 rounded-md p-2"
-//         >
-//           <option value="APA">APA</option>
-//           <option value="MLA">MLA</option>
-//           <option value="Chicago">Chicago</option>
-//         </select>
-//       </div>
-//       <button
-//         onClick={generateCitation}
-//         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-//       >
-//         Generate Citation
-//       </button>
-
-//       {citation && (
-//         <div className="mt-5">
-//           <h3 className="text-md font-bold">Generated Citation:</h3>
-//           <p className="mt-2 p-4 border border-gray-300 rounded-md bg-gray-50">{citation}</p>
-//         </div>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default page
-
 import React, { useState } from "react";
 
 const CitationGenerator = () => {
-  // States for input fields
+  const mounted = useMounted();
+
   const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [link, setLink] = useState("");
-  const [citationType, setCitationType] = useState("APA"); // Default citation type is APA
-const [copyStatus, setCopyStatus] = useState(false)
+  const [citationType, setCitationType] = useState("APA");
+  const [copyStatus, setCopyStatus] = useState(false);
 
-  // State to hold all citation entries
   const [citations, setCitations] = useState([]);
 
   // Function to add a new citation
   const addCitation = () => {
     if (author && title && year) {
       setCitations([...citations, { author, title, year, link }]);
-      // Clear inputs after adding
       setAuthor("");
       setTitle("");
       setYear("");
@@ -140,13 +52,14 @@ const [copyStatus, setCopyStatus] = useState(false)
   const copyToClipboard = () => {
     const formattedCitations = citations.map(formatCitation).join("\n");
     navigator.clipboard.writeText(formattedCitations).then(() => {
-        setCopyStatus(true)
-        setTimeout(() => {
-            setCopyStatus(false);
-          }, 5000);
+      setCopyStatus(true);
+      setTimeout(() => {
+        setCopyStatus(false);
+      }, 5000);
     });
   };
 
+  if (!mounted) return null;
   return (
     <div className="min-h-screen bg-gray-100 p-5">
       <h1 className="text-3xl text-center mb-8 font-bold">
@@ -243,7 +156,11 @@ const [copyStatus, setCopyStatus] = useState(false)
               <div className="flex justify-end">
                 <button
                   onClick={copyToClipboard}
-                  className={`text-white p-2 rounded-md text-lg  ${copyStatus ? "bg-green-500" : "bg-purple-500 hover:bg-purple-600"}`}
+                  className={`text-white p-2 rounded-md text-lg  ${
+                    copyStatus
+                      ? "bg-green-500"
+                      : "bg-purple-500 hover:bg-purple-600"
+                  }`}
                 >
                   <Copy />
                 </button>
