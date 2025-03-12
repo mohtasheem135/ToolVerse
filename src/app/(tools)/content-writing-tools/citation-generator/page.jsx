@@ -170,24 +170,6 @@ const CitationGenerator = () => {
           )}
         </div>
       </div>
-
-      {/* Generate and Copy to Clipboard Buttons at the Bottom */}
-      {/* {citations.length > 0 && (
-        <div className="text-center mt-10">
-          <button
-            onClick={generateCitations}
-            className="bg-green-500 text-white px-6 py-3 rounded-md text-lg hover:bg-green-600"
-          >
-            Generate All Citations
-          </button>
-          <button
-            onClick={copyToClipboard}
-            className="ml-4 bg-purple-500 text-white px-6 py-3 rounded-md text-lg hover:bg-purple-600"
-          >
-            Copy Citations to Clipboard
-          </button>
-        </div>
-      )} */}
     </div>
   );
 };

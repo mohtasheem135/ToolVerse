@@ -1,4 +1,4 @@
-import { CalendarClock, Image, Landmark, NotebookPen, PencilRuler } from "lucide-react";
+import { CalendarClock, Image, Landmark, NotebookPen, PencilRuler, Database } from "lucide-react";
 
 export const sidebarData = [
   // This is the sample way of Adding Data You can add Items, SubItems and Nested SubItems
@@ -145,6 +145,16 @@ export const sidebarData = [
         link: "/content-writing-tools/content-summarizer",
       },
       
+    ],
+  },
+  {
+    title: "Data Structures Visualizer",
+    icon: Database,
+    subItems: [
+      {
+        title: "Tree Visualizer",
+        link: "/data-structures-visualizer/tree-visualizer",
+      },
     ],
   },
 
