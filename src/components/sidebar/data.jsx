@@ -152,6 +152,10 @@ export const sidebarData = [
     icon: Database,
     subItems: [
       {
+        title: "Sorting Visualizer",
+        link: "/data-structures-visualizer/sorting-visualizer",
+      },
+      {
         title: "Tree Visualizer",
         link: "/data-structures-visualizer/tree-visualizer",
       },
