@@ -5,6 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import useMounted from "@/hooks/useMounted";
 import { Download, PlusIcon, Trash2 } from "lucide-react";
 import { useState } from "react";
+import Loader from "@/components/ui/Loader";
 
 export default function GaussianNoiseGenerator() {
   const mounted = useMounted();
@@ -117,7 +118,7 @@ export default function GaussianNoiseGenerator() {
     setSigmaValue(newValue);
   };
 
-  if (!mounted) return <p>Loading...</p>;
+  if (!mounted) return <Loader />;
 
   return (
     <div className="w-[100%] p-2">

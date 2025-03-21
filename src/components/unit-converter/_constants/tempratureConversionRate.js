@@ -1,0 +1,68 @@
+export const temperatureConversionRates = {
+    celsius: {
+      fahrenheit: (celsius) => (celsius * 9/5) + 32,
+      kelvin: (celsius) => celsius + 273.15,
+      rankine: (celsius) => (celsius + 273.15) * 9/5,
+      delisle: (celsius) => (100 - celsius) * 3/2,
+      reaumur: (celsius) => celsius * 4/5,
+      romer: (celsius) => (celsius * 21/40) + 7.5,
+    },
+    fahrenheit: {
+      celsius: (fahrenheit) => (fahrenheit - 32) * 5/9,
+      kelvin: (fahrenheit) => (fahrenheit - 32) * 5/9 + 273.15,
+      rankine: (fahrenheit) => fahrenheit + 459.67,
+      delisle: (fahrenheit) => (212 - fahrenheit) * 5/6,
+      reaumur: (fahrenheit) => (fahrenheit - 32) * 4/9,
+      romer: (fahrenheit) => (fahrenheit - 32) * 7/24 + 7.5,
+    },
+    kelvin: {
+      celsius: (kelvin) => kelvin - 273.15,
+      fahrenheit: (kelvin) => (kelvin - 273.15) * 9/5 + 32,
+      rankine: (kelvin) => kelvin * 9/5,
+      delisle: (kelvin) => (373.15 - kelvin) * 3/2,
+      reaumur: (kelvin) => (kelvin - 273.15) * 4/5,
+      romer: (kelvin) => (kelvin - 273.15) * 21/40 + 7.5,
+    },
+    rankine: {
+      celsius: (rankine) => (rankine - 491.67) * 5/9,
+      fahrenheit: (rankine) => rankine - 459.67,
+      kelvin: (rankine) => rankine * 5/9,
+      delisle: (rankine) => (671.67 - rankine) * 5/6,
+      reaumur: (rankine) => (rankine - 491.67) * 4/9,
+      romer: (rankine) => (rankine - 491.67) * 7/24 + 7.5,
+    },
+    delisle: {
+      celsius: (delisle) => 100 - delisle * 2 / 3,
+      fahrenheit: (delisle) => 212 - delisle * 5 / 6,
+      kelvin: (delisle) => 373.15 - delisle * 3 / 2,
+      rankine: (delisle) => 671.67 - delisle * 5 / 6,
+      reaumur: (delisle) => (100 - delisle) * 4 / 5,
+      romer: (delisle) => (100 - delisle) * 7 / 40 + 7.5,
+    },
+    reaumur: {
+      celsius: (reaumur) => reaumur * 5/4,
+      fahrenheit: (reaumur) => (reaumur * 9/4) + 32,
+      kelvin: (reaumur) => (reaumur * 5/4) + 273.15,
+      rankine: (reaumur) => (reaumur * 9/4) + 491.67,
+      delisle: (reaumur) => (80 - reaumur) * 3/2,
+      romer: (reaumur) => (reaumur * 21/32) + 7.5,
+    },
+    romer: {
+      celsius: (romer) => (romer - 7.5) * 40/21,
+      fahrenheit: (romer) => (romer - 7.5) * 24/7 + 32,
+      kelvin: (romer) => (romer - 7.5) * 40/21 + 273.15,
+      rankine: (romer) => (romer - 7.5) * 24/7 + 459.67,
+      delisle: (romer) => (60 - romer) * 20/7,
+      reaumur: (romer) => (romer - 7.5) * 32/21,
+    },
+  };
+  
+  export const temperatureUnits = [
+    { name: "Celsius", key: "celsius", symbol: "°C" },
+    { name: "Fahrenheit", key: "fahrenheit", symbol: "°F" },
+    { name: "Kelvin", key: "kelvin", symbol: "K" },
+    { name: "Rankine", key: "rankine", symbol: "°R" },
+    { name: "Delisle", key: "delisle", symbol: "°D" },
+    { name: "Réaumur", key: "reaumur", symbol: "°Ré" },
+    { name: "Rømer", key: "romer", symbol: "°Rø" },
+  ];

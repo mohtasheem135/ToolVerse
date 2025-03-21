@@ -27,17 +27,18 @@ export const sidebarData = [
   // },
 
   {
-    title: "Unit Converters",
+    title: "Converters",
     icon: PencilRuler,
     subItems: [
-      { title: "Length", link: "/unit-converter/length" },
-      { title: "Weight", link: "/unit-converter/weight" },
-      {
-        title: "Temperature",
-        link: "/unit-converter/temperature",
-      },
-      { title: "Area ", link: "/unit-converter/area" },
-      { title: "Volume ", link: "/unit-converter/volume" },
+      // { title: "Length", link: "/unit-converter/length" },
+      // { title: "Weight", link: "/unit-converter/weight" },
+      // {
+      //   title: "Temperature",
+      //   link: "/unit-converter/temperature",
+      // },
+      // { title: "Area ", link: "/unit-converter/area" },
+      // { title: "Volume ", link: "/unit-converter/volume" },
+      { title: "Unit-Converter ", link: "/converter/unit-converter" },
     ],
   },
   {
