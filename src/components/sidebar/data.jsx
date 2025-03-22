@@ -39,6 +39,7 @@ export const sidebarData = [
       // { title: "Area ", link: "/unit-converter/area" },
       // { title: "Volume ", link: "/unit-converter/volume" },
       { title: "Unit-Converter ", link: "/converter/unit-converter" },
+      { title: "Base-Converter ", link: "/converter/base-converter" },
     ],
   },
   {

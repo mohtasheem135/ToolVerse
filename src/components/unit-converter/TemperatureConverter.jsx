@@ -21,13 +21,7 @@ export default function TemperatureConverter() {
   const [fromUnit, setFromUnit] = useState("celsius");
   const [toUnit, setToUnit] = useState("fahrenheit");
   const [result, setResult] = useState(0);
-  // const [submitted, setSubmitted] = useState(false);
-  // const [mounted, setMounted] = useState(false);
-
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
-
+  
   // Conversion function
   const convert = (value, fromUnit, toUnit, rates) => {
     if (typeof rates[fromUnit][toUnit] === "function") {
@@ -62,7 +56,7 @@ export default function TemperatureConverter() {
   const formatConversion = (value, fromUnit, result, toUnit) => {
     const fromUnitSymbol = unitSymbols[fromUnit] || fromUnit;
     const toUnitSymbol = unitSymbols[toUnit] || toUnit;
-    return `${value} ${fromUnitSymbol} is equal to ${result.toFixed(
+    return `${value} ${fromUnitSymbol} is equal to ${result?.toFixed(
       4
     )} ${toUnitSymbol}`;
   };
