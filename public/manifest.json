@@ -1,21 +1,21 @@
 {
-    "name": "Task Manager",
-    "short_name": "Task",
-    "description": "This is a Task App",
+    "name": "ToolVerse",
+    "short_name": "ToolVerse",
+    "description": "A Repository of Tools for Daily Use",
     "icons": [
       {
-        "src": "/icons/toolverse-128.png",
+        "src": "/icon/toolverse-192.png",
         "sizes": "192X192",
         "type": "image/png",
         "purpose": "any maskable"
       },
       {
-        "src": "/icons/toolverse-256.png",
+        "src": "/icon/toolverse-384.png",
         "sizes": "384X384",
         "type": "image/png"
       },
       {
-        "src": "/icons/toolverse-512.png",
+        "src": "/icon/toolverse-512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
