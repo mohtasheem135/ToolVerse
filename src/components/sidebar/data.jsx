@@ -50,10 +50,10 @@ export const sidebarData = [
         title: "Time Zone Converter",
         link: "/date-time/time-zone-converter",
       },
-      {
-        title: "Day of the week Finder",
-        link: "/date-time/day-of-the-week-finder",
-      },
+      // {
+      //   title: "Day of the week Finder",
+      //   link: "/date-time/day-of-the-week-finder",
+      // },
       {
         title: "Work Days Calculator ",
         link: "/date-time/work-days-calculator",
@@ -163,6 +163,16 @@ export const sidebarData = [
       },
     ],
   },
+  // {
+  //   title: "Business",
+  //   icon: Database,
+  //   subItems: [
+  //     {
+  //       title: "Rubber Stamp",
+  //       link: "/business/rubber-stamp",
+  //     },
+  //   ],
+  // },
 
   // {
   //   title: "Converter",

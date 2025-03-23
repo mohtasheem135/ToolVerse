@@ -15,10 +15,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const APP_NAME = "ToolVerse App";
+const APP_DEFAULT_TITLE = "My Awesome ToolVerse App";
+const APP_TITLE_TEMPLATE = "%s - ToolVerse App";
+const APP_DESCRIPTION = "A Repository of Tools for Daily Use";
+
+// export const metadata: Metadata = {
+//   title: "ToolVerse",
+//   description: "A Repository of Tools for Everyone",
+// };
 export const metadata: Metadata = {
-  title: "ToolVerse",
-  description: "A Repository of Tools for Everyone",
+  applicationName: APP_NAME,
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
+  },
+  description: APP_DESCRIPTION,
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    siteName: APP_NAME,
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+  },
 };
+
 
 export default function RootLayout({
   children,
@@ -27,6 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="manifest" href="/manifest.json" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full m-0`}
       >

@@ -178,7 +178,7 @@ const Page = () => {
                   value={fromBase}
                   onChange={handleFromBaseChange}
                   options={baseOptions}
-                  isClearable
+                isClearable={false}
                   isSearchable
                 />
               </div>
@@ -194,7 +194,7 @@ const Page = () => {
                   value={toBase}
                   onChange={handleToBaseChange}
                   options={baseOptions}
-                  isClearable
+                  isClearable={false}
                   isSearchable
                 />
               </div>
