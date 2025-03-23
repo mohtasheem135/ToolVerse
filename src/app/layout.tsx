@@ -4,6 +4,8 @@ import "./globals.css";
 import { AppSidebar } from "@/components/sidebar/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import Link from "next/link";
+import Head from "next/head";
+import Meta from "./Meta";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="manifest" href="/manifest.json" />
+      <Meta />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full m-0`}
       >
