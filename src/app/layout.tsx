@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppSidebar } from "@/components/sidebar/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import Link from "next/link";
-import Head from "next/head";
+import Link from "next/link";;
 import Meta from "./Meta";
 
 const geistSans = Geist({
@@ -18,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const APP_NAME = "ToolVerse App";
-const APP_DEFAULT_TITLE = "My Awesome ToolVerse App";
+const APP_DEFAULT_TITLE = "ToolVerse Web App";
 const APP_TITLE_TEMPLATE = "%s - ToolVerse App";
 const APP_DESCRIPTION = "A Repository of Tools for Daily Use";
 
