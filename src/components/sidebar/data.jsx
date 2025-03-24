@@ -77,6 +77,7 @@ export const sidebarData = [
     icon: Image,
     subItems: [
       { title: "Image Converter", link: "/image-tools/image-converter" },
+      { title: "Image Color Extractor", link: "/image-tools/image-color-extractor" },
       {
         title: "Gaussian Noise Generator",
         link: "/image-tools/gaussian-noise-generator",
@@ -149,20 +150,21 @@ export const sidebarData = [
       
     ],
   },
-  {
-    title: "Data Structures Visualizer",
-    icon: Database,
-    subItems: [
-      {
-        title: "Sorting Visualizer",
-        link: "/data-structures-visualizer/sorting-visualizer",
-      },
-      {
-        title: "Tree Visualizer",
-        link: "/data-structures-visualizer/tree-visualizer",
-      },
-    ],
-  },
+
+  // {
+  //   title: "Data Structures Visualizer",
+  //   icon: Database,
+  //   subItems: [
+  //     {
+  //       title: "Sorting Visualizer",
+  //       link: "/data-structures-visualizer/sorting-visualizer",
+  //     },
+  //     {
+  //       title: "Tree Visualizer",
+  //       link: "/data-structures-visualizer/tree-visualizer",
+  //     },
+  //   ],
+  // },
   // {
   //   title: "Business",
   //   icon: Database,
