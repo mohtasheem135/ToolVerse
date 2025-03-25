@@ -1,5 +1,5 @@
-// app/page.js
 "use client";
+
 import { useState } from "react";
 import ImageUploader from "./components/ImageUploader";
 import ColorPalette from "./components/ColorPalette";

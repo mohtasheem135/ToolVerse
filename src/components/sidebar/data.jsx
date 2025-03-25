@@ -40,6 +40,7 @@ export const sidebarData = [
       // { title: "Volume ", link: "/unit-converter/volume" },
       { title: "Unit-Converter ", link: "/converter/unit-converter" },
       { title: "Base-Converter ", link: "/converter/base-converter" },
+      { title: "Base64-Converter ", link: "/converter/base64-converter" },
     ],
   },
   {
