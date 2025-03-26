@@ -116,14 +116,14 @@ export default function Page() {
             {textType === "" ? null : textType === "Normal" ? (
               <button
                 onClick={handleToBase64}
-                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/4`}
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded md:w-1/4`}
               >
                 to Base64
               </button>
             ) : (
               <button
                 onClick={handleFromBase64}
-                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/4`}
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded md:w-1/4`}
               >
                 Base64 To Text
               </button>
