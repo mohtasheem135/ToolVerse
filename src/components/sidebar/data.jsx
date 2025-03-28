@@ -151,6 +151,17 @@ export const sidebarData = [
       
     ],
   },
+  // {
+  //   title: "PDF Tools",
+  //   icon: NotebookPen,
+  //   subItems: [
+  //     {
+  //       title: "PDF extractor",
+  //       link: "/pdf-tools/pdf-extractor",
+  //     },
+      
+  //   ],
+  // },
 
   // {
   //   title: "Data Structures Visualizer",
